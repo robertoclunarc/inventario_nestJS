@@ -1,9 +1,8 @@
 import { Controller, Get, Post, Delete, Put, Param, Body, /*Req, Res,*/ ParseIntPipe } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-//import {Request, Response} from 'express';
 import { AlmMovInventarioService } from './alm-mov-inventario.service';
 import { CreateAlmMovInventarioDTO } from './dto/create-AlmMovInventario.dto';
-import { EditAlmMovInventarioDTO } from './dto/edit-AlmMovInventario.dto'
+import { EditAlmMovInventarioDTO } from './dto/edit-AlmMovInventario.dto';
 
 @ApiTags("alm-mov-inventario Module")
 @Controller('api/inventario/movimientos')

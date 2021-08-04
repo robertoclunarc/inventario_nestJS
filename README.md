@@ -22,6 +22,15 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+# inventario
+
+microservicio para el manejo de los inventarios de productos en los almacenes
+
+## Rutas y Estructuras
+
+- Movimientos - [https://localhost/docs](https://10.10.0.7:3004/docs)
+
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
@@ -57,11 +66,3 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-
-# inventario
-
-microservicio para el manejo de los inventarios de productos en los almacenes
-
-## Rutas y Estructuras
-
-- documentacion - [https://localhost/docs](https://10.10.0.7:3004/docs)

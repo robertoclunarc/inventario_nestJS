@@ -1,7 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
 export class alm_tipos_movimiento {
+    @ApiProperty()
     @PrimaryGeneratedColumn()
     idAlmTipoMov: number;    
     

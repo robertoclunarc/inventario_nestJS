@@ -1,7 +1,9 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
 export class alm_mov_inventario {
+    @ApiProperty()
     @PrimaryGeneratedColumn()
     alma_mov_inv_id: number; 
 

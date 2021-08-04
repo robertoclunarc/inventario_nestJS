@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
-import { initSwagger } from './alm-mov-inventario/app.swagger';
+import { initSwagger } from './app.swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {cors: true});
