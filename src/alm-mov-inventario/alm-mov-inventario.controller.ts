@@ -4,6 +4,7 @@ import { AlmMovInventarioService } from './alm-mov-inventario.service';
 import { CreateAlmMovInventarioDTO } from './dto/create-AlmMovInventario.dto';
 import { EditAlmMovInventarioDTO } from './dto/edit-AlmMovInventario.dto';
 
+
 @ApiTags("alm-mov-inventario Module")
 @Controller('api/inventario/movimientos')
 export class AlmMovInventarioController {

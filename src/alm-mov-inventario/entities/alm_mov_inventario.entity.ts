@@ -10,7 +10,7 @@ export class alm_mov_inventario {
     @Column({type: 'int', nullable: true })
     tipo: number;
     
-    @Column({type: 'int' })
+    @Column({type: 'int', nullable: true })
     id_producto: number;
     
     @Column({type: 'float', nullable: true })

@@ -1,89 +1,118 @@
 import { movInventarioEstatus } from '../enums';
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEnum, IsNumber, IsString } from 'class-validator';
+import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class CreateAlmMovInventarioDTO {
     @ApiProperty()
     @IsNumber()    
     tipo: number;
 
-    @ApiProperty()
+    
     @IsNumber()
+    @IsOptional()//--------
+    @Type(() => Number)
     id_producto: number;
 
-    @ApiProperty()
+    
     @IsNumber()
+    @IsOptional()
+    @Type(() => Number)
     entrada: number;
 
-    @ApiProperty()
+   
     @IsNumber()
+    @IsOptional()
+    @Type(() => Number)
     salida: number;
 
-    @ApiProperty()
+    
     @IsNumber()
+    @IsOptional()
+    @Type(() => Number)
     id_almacen_origen: number;
 
-    @ApiProperty()
+   
     @IsNumber()
+    @IsOptional()
+    @Type(() => Number)
     id_almacen_destino: number;
 
-    @ApiProperty()
+    
     @IsNumber()
+    @Type(() => Number)
     id_usuario_proceso: number;
 
-    @ApiProperty()
+    
     @IsNumber()
+    @IsOptional()
+    @Type(() => Number)
     id_usuario_aprobo: number;
 
-    @ApiProperty()
+    
     @IsString()
     fecha_solicitud: string;
 
-    @ApiProperty()
+    
     @IsString()
+    @IsOptional()
     fecha_aprobacion: string;
     
-    @ApiProperty()
+    
     @IsNumber()
+    @IsOptional()//--------
+    @Type(() => Number)
     id_activo: number;
 
-    @ApiProperty()
+    
     @IsNumber()
+    @IsOptional()
+    @Type(() => Number)
     es_logico: number;
 
-    @ApiProperty()
+    
     @IsNumber()
+    @Type(() => Number)
     costo: number;
 
-    @ApiProperty()
+    
     @IsNumber()
+    @IsOptional()
+    @Type(() => Number)
     costo_Dollar: number;
 
-    @ApiProperty()
+    
     @IsNumber()
+    @IsOptional()//--------
+    @Type(() => Number)
     id_puesto: number;
     
-    @ApiProperty()
+   
     @IsNumber()
+    @Type(() => Number)
     id_oc: number;
 
-    @ApiProperty()
+    
     @IsString()
+    @IsOptional()
     lote: string;
 
-    @ApiProperty()
+    
     @IsString()
+    @IsOptional()
     justificacion: string;
 
-    @ApiProperty()
+    
     @IsString()
+    @IsOptional()//--------
     rif_empresa: string;
 
-    @ApiProperty()
+    
     @IsString()
+    @IsOptional()//--------
     fecha_caducidad: string;
 
-    @ApiProperty()
+    
     @IsEnum(movInventarioEstatus,{
         message: `La opcion recibida no esta dentro de las opciones validas del campo Estatus`})
     estatus: movInventarioEstatus;
