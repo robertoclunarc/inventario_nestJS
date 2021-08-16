@@ -45,8 +45,8 @@ export class AlmMovInventarioService {
             return `${this.entidad} No Actualizado`
         }
         const editPost = Object.assign(post, dto);
-        await this.rpsAlmInventario.save(editPost);
-        return `${this.entidad} Actualizado Correctamente`            
+        return await this.rpsAlmInventario.save(editPost);
+        //return `${this.entidad} Actualizado Correctamente`            
     }
 
     async delete(id: number){

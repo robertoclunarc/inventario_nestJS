@@ -34,7 +34,10 @@ export class AlmMovInventarioController {
     }
 
     @Post()
-    async createMovInv(@Body() dto: CreateAlmMovInventarioDTO) {
+    async createMovInv(
+        @Body() dto: CreateAlmMovInventarioDTO
+        ) 
+        {
         return await this.srvAlmMovInventario.insertar(dto);
         
     }

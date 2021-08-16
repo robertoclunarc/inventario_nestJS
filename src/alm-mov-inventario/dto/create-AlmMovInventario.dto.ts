@@ -5,7 +5,12 @@ import { Type } from 'class-transformer';
 
 export class CreateAlmMovInventarioDTO {
     @ApiProperty()
-    @IsNumber()    
+    @IsNumber()
+    @IsOptional()//--------
+    alma_mov_inv_id: number; 
+
+    @IsNumber()
+    @IsOptional()//--------   
     tipo: number;
 
     
@@ -40,6 +45,7 @@ export class CreateAlmMovInventarioDTO {
 
     
     @IsNumber()
+    @IsOptional()
     @Type(() => Number)
     id_usuario_proceso: number;
 
