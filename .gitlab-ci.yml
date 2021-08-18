@@ -22,17 +22,17 @@ install_dependencies:
 build:
     stage: build
     script:
-        - docker build -t $BUILD_TAG .
+        - docker build -t inventarios .
 
 register_image:
     stage: containerization
     variables:
         SHA: $CI_COMMIT_SHA
     script:
-        - docker tag $BUILD_TAG $DOCKER_SERVER/$BUILD_TAG:$SHA
-        - docker tag $BUILD_TAG $DOCKER_SERVER/$BUILD_TAG:latest
-        - docker push $DOCKER_SERVER/$BUILD_TAG:$SHA
-        - docker push $DOCKER_SERVER/$BUILD_TAG:latest
+        - docker tag inventarios $DOCKER_SERVER/inventarios:$SHA
+        - docker tag inventarios $DOCKER_SERVER/inventarios:latest
+        - docker push $DOCKER_SERVER/inventarios:$SHA
+        - docker push $DOCKER_SERVER/inventarios:latest
     only:
         - master
 
