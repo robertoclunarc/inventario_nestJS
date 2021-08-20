@@ -17,7 +17,7 @@ export class DBConfigService implements TypeOrmOptionsFactory {
             port: parseInt(this.configService.get<string>('MYSQL_PORT')),
             entities: [__dirname + './**/**/*entity{.ts,.js}'],
             autoLoadEntities: true,
-            synchronize: true
+            synchronize: false
     };
   }
 }
