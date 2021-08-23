@@ -20,7 +20,7 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(process.env.APP_PORT || 3000);
+  await app.listen(process.env.APP_PORT || 3003);
   Logger.log(`Server is running in ${ await app.getUrl()}`);
 }
 bootstrap();
