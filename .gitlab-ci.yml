@@ -1,7 +1,7 @@
 image: node:12
 
 stages:
-    - dependencies
+    - dependencias
     - build
     - containerization
     - deploy
