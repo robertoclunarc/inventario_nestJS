@@ -10,11 +10,11 @@ export class DBConfigService implements TypeOrmOptionsFactory {
     createTypeOrmOptions(): TypeOrmModuleOptions {
         return {
             type: 'mysql',
-            host: this.configService.get<string>('MYSQL_SERVER'),
-            database: this.configService.get<string>('MYSQL_DB'),
-            username: this.configService.get<string>('MYSQL_USER'),
-            password: this.configService.get<string>('MYSQL_PW'),
-            port: parseInt(this.configService.get<string>('MYSQL_PORT')),
+            host: this.configService.get<string>('DESA_MYSQL_SERVER'),
+            database: this.configService.get<string>('DESA_MYSQL_DB'),
+            username: this.configService.get<string>('DESA_MYSQL_USER'),
+            password: this.configService.get<string>('DESA_MYSQL_PASS'),
+            port: parseInt(this.configService.get<string>('DESA_MYSQL_PORT')),
             entities: [__dirname + './**/**/*entity{.ts,.js}'],
             autoLoadEntities: true,
             synchronize: false

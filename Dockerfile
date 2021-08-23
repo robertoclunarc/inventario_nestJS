@@ -1,6 +1,16 @@
-#STAGE 0 COMPILE TS ON NODEJS
-FROM node:12 as inventarios
+#Este es la base
+FROM node:14 as inventarios
 WORKDIR /app
-COPY . .
-RUN npm install && npm run start:dev
+COPY ./app/package*.json /app/
+RUN npm install -g rimraf
+RUN yarn 
+COPY ./app/ /app/
+RUN yarn build 
+
+#una vez que se compila se crea el contenedor definitivo
+FROM node:14-alpine 
+WORKDIR /app
+COPY ./app/package*.json /app/
+COPY --from=inventarios /app/dist ./dist
+RUN yarn install --production
 CMD [ "node", "dist/main.js" ]

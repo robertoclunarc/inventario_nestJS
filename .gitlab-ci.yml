@@ -11,32 +11,33 @@ cache:
         - node_modules/
 
 install_dependencies:
-    stage: dependencies
+    timeout: 180m
+    stage: dependencias
     script:
         - npm install
-        # - npm install -g typescript
     artifacts:
         paths:
             - node_modules/
 
 build:
+    timeout: 180m
     stage: build
     script:
-        - docker build -t inventarios .
+        - docker build -t $BUILD_TAG .
 
 register_image:
     stage: containerization
     variables:
-        SHA: $CI_COMMIT_SHA
+        SHA: $CI_COMMIT_SHORT_SHA
     script:
-        - docker tag inventarios $DOCKER_SERVER/inventarios:$SHA
-        - docker tag inventarios $DOCKER_SERVER/inventarios:latest
-        - docker push $DOCKER_SERVER/inventarios:$SHA
-        - docker push $DOCKER_SERVER/inventarios:latest
+        - docker tag $BUILD_TAG $DOCKER_SERVER/$BUILD_TAG:$SHA
+        - docker tag $BUILD_TAG $DOCKER_SERVER/$BUILD_TAG:latest
+        - docker push $DOCKER_SERVER/$BUILD_TAG:$SHA
+        - docker push $DOCKER_SERVER/$BUILD_TAG:latest
     only:
         - master
 
-deploy_to_dev:
+deploy_to_desarrollo:
     stage: deploy
     variables:
         MYSQL_SERVER: $DESA_MYSQL_SERVER
@@ -45,10 +46,11 @@ deploy_to_dev:
         MYSQL_DB: $DESA_MYSQL_DB
         MYSQL_PORT: $DESA_MYSQL_PORT
         APP_PORT: $APP_PORT
+        DEPLOY_TAG: $BUILD_TAG
     script:
+        - echo $DEPLOY_TAG
         - docker-compose down
-        - docker-compose up -d --build
-        - echo $DESA_MYSQL_SERVER
+        - docker-compose up -d 
     only:
         - desarrollo
     tags:
@@ -63,10 +65,12 @@ deploy_to_prod:
         MYSQL_DB: $DESA_MYSQL_DB
         MYSQL_PORT: $DESA_MYSQL_PORT
         APP_PORT: $APP_PORT
+        DEPLOY_TAG: $DOCKER_SERVER/$BUILD_TAG:latest
     script:
-        - echo $PROD_MYSQL_SERVER
+        - echo $DEPLOY_TAG
+        - docker pull $DEPLOY_TAG
         - docker-compose down
-        - docker-compose up -d --build
+        - docker-compose up -d
     only:
         - master
     when: manual
