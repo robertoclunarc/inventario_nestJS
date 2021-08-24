@@ -13,7 +13,7 @@ export class DBConfigService implements TypeOrmOptionsFactory {
             host: this.configService.get<string>('MYSQL_SERVER'),
             database: this.configService.get<string>('MYSQL_DB'),
             username: this.configService.get<string>('MYSQL_USER'),
-            password: this.configService.get<string>('MYSQL_PASS'),
+            password: this.configService.get<string>('MYSQL_PW'),
             port: parseInt(this.configService.get<string>('MYSQL_PORT')),
             entities: [__dirname + './**/**/*entity{.ts,.js}'],
             autoLoadEntities: true,
